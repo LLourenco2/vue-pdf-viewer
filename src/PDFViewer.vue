@@ -1,6 +1,6 @@
 <template>
   <div class="pdf-viewer" @contextmenu="handlePreventDefault">
-    <div class="pdf-viewer__header" :class="{ 'not-ready': !isReady }">
+    <div v-if="showToolBar" class="pdf-viewer__header" :class="{ 'not-ready': !isReady }">
       <ViewerPageSelector
         :total="total"
         :page="page"
@@ -93,6 +93,10 @@ export default {
       type: String,
       default: null,
     },
+    showToolBar:{
+      type: Boolean,
+      default: true
+    }
   },
   components: {
     Viewer,
